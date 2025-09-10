@@ -1,0 +1,359 @@
+*{ box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system;
+    line-height: 1.5;
+    color: #0f172a;
+    background-color: #f8fafc;
+}
+
+/*       variables      */
+:root{
+
+    --bg :#f8fafc;                                 /*Fondo general de la página*/
+    --panel : #ffffff;                             /*Fondo de tarjetas/paneles*/
+    --text: #0f172a ;                              /*Texto principal*/
+    --muted: #64748b ;                             /*Texto secundario / subtítulos / notas*/
+    --primary :#2563eb;                            /*Color principal (botones, enlaces)*/
+    --primary-600: #1d4ed8 ;                       /*Hover de elementos primarios*/
+    --primary-700:#1e40af ;                        /*Estado activo de elementos primarios*/
+    --accent: #16a34a ;                            /*Verde positivo / estados correctos*/
+    --danger: #dc2626 ;                            /*Rojo peligro / alerta*/
+    --radius :14px ;                                 /*Borde redondeado general*/
+    --shadow: 0 6px 24px rgba(15,23,42,0.08) ;     /*Sombra de paneles, cards*/
+    --container :1100px ;                            /*Ancho máximo del contenido central*/
+
+
+    /*VARIABLES DE ESPAICIOS*/
+    --space-1 : 4px;/*Detalles muy pequeños, íconos o separación mínima*/
+    --space-2 : 8px; /*Pequeños paddings internos de botones o inputs*/
+    --space-3 : 12px; /*Margen entre elementos secundarios*/
+    --space-4 : 16px; /*Paddings estándar en tarjetas o botones*/
+    --space-5 : 20px; /*Separaciones medias, secciones internas*/
+    --space-6 : 24px; /*Paddings grandes dentro de paneles / cards*/
+    --space-8 : 32px; /*Márgenes entre bloques principales*/
+    --space-10 : 40px; /*Separación de secciones grandes*/
+    --space-12 : 48px; /*Espacios top/bottom grandes para hero o secciones principales*/
+
+}
+
+/*---------------cabecero de pagina-----------------*/
+.site-header__logo{
+    display: flex;
+    padding: var(--space-2);
+
+
+}
+
+.site-header__mark {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #fff;
+    font-weight: 800;
+}
+.titulo_mitienda{
+    margin: var(--space-3);
+    font-weight: bold
+}
+.MiTienda{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width:var(--container);
+    margin: 0 auto;
+}
+.section_mitienda{
+    position: sticky;
+    background-color: var(--panel);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+.MiTienda a{
+    text-decoration: none;
+    color: var(--text);
+}
+.MiTienda li{
+    list-style: none;
+    display: inline;
+    padding: var(--space-2);
+}
+header {
+  position: sticky;
+  top: 0;              /* se queda pegado al top */
+  z-index: 1000;       /* se asegura de estar arriba de las cartas */
+  background: var(--panel);    /* poné un fondo para que no se vea transparente */
+}
+
+
+/* Botón hamburguesa */
+.menu-checkbox {
+  display: none; /* ocultamos el input */
+}
+
+.menu-icon {
+  display: none; /* solo en móvil */
+  cursor: pointer;
+}
+
+
+
+
+/* Móvil */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: flex; /* mostramos el icono en móvil */
+    position: absolute;
+    right: 10px;
+    }
+
+
+  /* Cuando el checkbox está marcado => mostrar menú */
+  .menu-checkbox:checked ~ nav ul {
+    display: flex;
+    
+  }
+
+}
+
+
+
+
+main{
+    display: flex;
+    justify-content: center;
+}
+/*-------------------------container----------------------------*/
+.container{
+    display: grid;
+    gap: var(--space-6); /* espacio entre tarjetas */
+    padding: var(--space-6);
+    max-width:var(--container);
+
+    /* Mobile (por defecto) */
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "botones"
+    "productos"
+    "novedades"
+    "ofertas"
+    "contacto";
+
+}
+
+/* Para desktop */
+@media (min-width: 768px) {
+  .container {
+        grid-template-columns: 1fr 1fr; /* dos columnas */
+        grid-template-areas: 
+        "botones productos"  /* acordarse nacho q se separan por espacios cada fila. como si fueran vectores*/
+        "novedades novedades"
+        "ofertas ofertas"
+        "contacto contacto";
+    }
+}
+/* --- Menú hamburguesa --- */
+.menu-toggle {
+  display: none; /* Oculto en desktop */
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: var(--space-2);
+  border-radius: var(--radius);
+}
+
+.menu-toggle:hover {
+  background-color: #f1f5f9;
+}/* Para móviles */
+@media (max-width: 768px) {
+  .MiTienda nav ul {
+    display: none;  /* escondemos el menú por defecto */
+    flex-direction: column;
+    background: var(--panel);
+    position: absolute;
+    top: 70px;   /* debajo del header */
+    right: 20px;
+    padding: var(--space-4);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+
+  .MiTienda nav ul.show {
+    display: flex; /* lo mostramos cuando se active */
+  }
+
+  .menu-toggle {
+    display: block; /* el botón aparece en móvil */
+  }
+
+  .MiTienda li {
+    display: block;
+    padding: var(--space-3) var(--space-4);
+  }
+}
+
+
+.section_botones{ grid-area: botones;}
+.section_productos{ grid-area: productos; }
+.section_novedades{ grid-area: novedades; }
+.section_ofertas{ grid-area: ofertas; }
+.section_contacto{ grid-area: contacto;}
+
+.card{
+    
+    background-color: var(--panel);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: var(--space-6);
+    margin: var(--space-8);
+    max-width: 1100px;
+}
+
+/*-------------------------seccion botones-------------*/
+ 
+.btn{
+    padding: var(--space-2);
+    margin: var(--space-3);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+
+}
+
+.btn--group{
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+}
+.btn_primary{
+    background-color: var(--primary);
+    color: var(--panel);
+    border: var(--primary);
+}
+.btn_secundary{
+    background-color: var(--muted);
+    border: none;
+}
+.btn_outline{
+    color: var(--primary-600);
+    border-color: var(--primary-600) ;
+
+}
+.btn_danger{
+    background-color: var(--danger);
+    color: var(--panel);
+    border: none;
+}
+
+.btn_icono{
+    display: flex;
+    align-items: center;
+    background-color: var(--primary);
+    color: var(--panel);
+    border: var(--primary);
+}
+.btn_icono::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: var(--panel); /* color del icono */
+  -webkit-mask: url("img/search.svg") no-repeat center;
+  -webkit-mask-size: contain;
+  margin: var(--space-1);
+}
+
+.btn:disabled {
+  cursor: not-allowed; /* cursor bloqueado */
+  opacity: 0.5;        /* aspecto apagado */
+}
+
+/* Efecto hover para todos los botones*/
+.btn:hover:not(:disabled) {
+  opacity: 0.9;              /* un poco más tenue */
+  transform: translateY(-2px); /* levanta apenas el botón */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* sombra ligera */
+}
+
+/*-------------------------secion productos--------------------------------*/
+
+.product-card_img img{
+    display: block;
+    margin: 0 auto; 
+    max-width: 250px;
+    max-height: 250px;
+}
+.product-card__info p{
+ opacity: 0.9;
+}
+.product-card__price del{
+    opacity: 0.9;
+}
+.btn-deCompra{
+    background-color: var(--primary);
+    color: var(--panel);
+    border: var(--primary);
+
+}
+
+.btn-añadirAlCarrito{
+    display: flex;
+    align-items: center;
+    color: var(--primary-600);
+    border-color: var(--primary-600) ;
+}
+
+.btn-añadirAlCarrito::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: var(--primary-600); /* color del icono */
+  -webkit-mask: url("img/circle-dashed-plus.svg") ;
+  mask-size: contain;
+  margin: var(--space-1);
+}
+
+/*aviso de nuevo en carta*/
+.product-card{
+    position: relative;
+}
+
+.product-card__badge b{
+    background-color: orange;
+    padding: var(--space-2);
+    border-radius: var(--radius);
+    position: absolute;
+    top: 80px;
+}
+
+/*-------------------------secion Novedades--------------------------------*/
+
+
+.code-note{
+    opacity: 0.9;
+}
+
+/*-------------------------secion ofertas--------------------------------*/
+
+
+
+
+/*-------------------------secion contacto--------------------------------*/
+
+
+/*-----------------------------footer--------------------------------------*/
+footer {
+  background-color: #f5f5f5;
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 1rem;
+  border-top: 2px solid #9890b6;
+}

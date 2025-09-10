@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>integrador css</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+
+        <section class="section_mitienda">
+            <div class="MiTienda">
+                <!-- Logo -->
+                <a href="#top" class="site-header__logo" aria-label="Inicio">
+                    <span class="site-header__mark" aria-hidden="true">M</span>
+                    <span class="titulo_mitienda">MiTienda</span> 
+                </a>
+                
+                <!-- Botón hamburguesa -->
+                <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+                <label for="menu-toggle" class="menu-icon"> <img src="img/menu-deep.svg" alt="icono de menu desplegable"></label>
+                <!-- Menú normal (desktop) -->
+                <nav>
+                    <ul>
+                        <li><a href="#novedades">Novedades</a></li>
+                        <li><a href="#ofertas">Ofertas</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+               
+
+            </div>
+
+
+
+        </section>
+
+    </header>
+
+    <main>
+
+        <div class="container">
+            <section class="section_botones">
+                <div class="card card--botones">
+                    <div class="card--titulo"><h2>1)Sistema de botones</h2></div>
+                    <div class="btn--group">
+                        <button class="btn btn_primary">Primario</button>
+                        <button class="btn btn_secundary">Secundario</button>
+                        <button class="btn btn_outline">Outline</button>
+                        <button class="btn btn_danger">Peligro</button>
+                        <button class="btn btn_icono"> Con icono</button>
+                        <button class="btn btn_desabilitado" disabled>Desabilitado</button>
+                    </div>
+                </div>
+            </section>
+
+            <article>
+                <section class="section_productos">
+                    <div class="card product-card">
+                        
+                        <div class="product-card_titulo" > <h2>2)Targeta de Productos</h2></div>
+                        <div class="product-card_img"> 
+                            <img src="img/zapatillas.webp" alt="foto producto zapatillas">
+                        </div>
+
+                        <div class="product-card__info">
+                            <h3>Zapatillas Runner Pro</h3>
+                            <br>
+                            <p> Amortiguacion ligera, malla respirable y suela antideslizante.
+                                Perfecta para entrenar todos los dias.
+                            </p>
+                            <br>
+                            <div class="product-card__price">
+                                <b>$ 24.999</b> <del>$ 29.999</del>
+
+                            </div>
+                            <div class="product-card__button btn--group" >
+                                <button class="btn btn-deCompra">Comprar ahora </button> 
+                                <button class="btn btn-añadirAlCarrito"> Añadir</button>
+                            </div>
+                            
+                        </div>
+                        <div class="product-card__badge"><b>Nuevo</b></div>
+
+
+
+
+                    </div>
+                
+
+                
+
+
+
+
+
+
+
+
+
+
+                </section>
+            </article>
+
+        
+            <section class="section_novedades" id="novedades">
+
+                <div class="card">
+                    <div class="card--titulo"><h2 >Novedades</h2></div>
+                    <p class="code-note"> Seccion de relleno para probar el menu</p>
+                </div>
+            </section>
+        
+
+            <section class="section_ofertas" id="ofertas">
+                <div class="card">
+                    <div class="card--titulo"><h2 >Ofertas</h2></div>
+                    <p class="code-note"> Otra seccion de relleno</p>
+
+
+                </div>
+            </section>
+
+            <section class="section_contacto" id="contacto">
+                <div class="card">
+                    <div class="card--titulo"><h2 >Contacto</h2></div>
+                    <p class="code-note"> Mas contenido de relleno</p>
+
+                </div>
+
+            </section>
+
+        </div>
+        
+    </main>
+
+
+
+    <footer>
+        <address>
+                <p>&copy; 2025 Ignacio Odorico</p>
+                <p>2do año/com 3</p>
+        </address>
+    </footer>
+
+
+    
+</body>
+</html>
